@@ -1,0 +1,19 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: busybox
+  namespace: trial
+spec:
+  containers:
+    - name: busybox
+      image: busybox
+      imagePullPolicy: IfNotPresent
+      command:
+      - top
+      volumeMounts:
+      - mountPath: "/data"
+        name: myvolume
+  volumes:
+    - name: myvolume
+      persistentVolumeClaim:
+        claimName: myclaim

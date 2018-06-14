@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox
+  namespace: trial
+spec:
+  containers:
+  - name: busybox
+    image: busybox
+    imagePullPolicy: IfNotPresent
+    command:
+    - top
+    env:
+      - name: OPTIONA
+        valueFrom:
+          configMapKeyRef:
+            name: config
+            key: optiona
+      - name: OPTIONB
+        valueFrom:
+          configMapKeyRef:
+            name: config
+            key: optionb

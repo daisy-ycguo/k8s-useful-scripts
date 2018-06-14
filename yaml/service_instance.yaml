@@ -1,0 +1,8 @@
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceInstance
+metadata:
+  name: mysql-instance
+  namespace: trial
+spec:
+  clusterServiceClassExternalName: p-mysql
+  clusterServicePlanExternalName: 5mb

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox
+  namespace: trial
+spec:
+  containers:
+  - name: busybox
+    image: busybox
+    imagePullPolicy: IfNotPresent
+    command: ['/bin/sh', '-c', 'top']
+  initContainers:
+  - name: init
+    image: busybox
+    imagePullPolicy: IfNotPresent
+    command: ['/bin/sh', '-c', 'sleep 30']
